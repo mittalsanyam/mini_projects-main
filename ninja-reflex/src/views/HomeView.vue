@@ -1,14 +1,22 @@
 <template>
-  <div class="container p-5">
-    <div class="container p-2">
-      <h1>Ninja Reflex</h1>
+  <div class="container justify-content-center">
+    <div class="container p-2 mt-2">
+      <h1 class="fs-1">Ninja Reflex</h1>
     </div>
     <div class="container p-2">
       <button v-if="!start" @click="startGame" class="btn btn-primary">Start Game</button>
       <button v-if="start" @click="endGame" class="btn btn-danger">End Game</button>
     </div>
-    <div v-if='start'>
-      Total = {{ total }} Hits = {{ hits }} Miss = {{ miss }}
+    <div v-if='start' class="container border border-3 rounded mt-2" style="width:25pc;">
+      <span class="text-primary fs-3 m-1 border border-0 p-1">Total {{ total }}</span> 
+      <span class="text-success fs-3 m-1 border border-0 p-1">Hits {{ hits }}</span>
+      <span class="text-danger fs-3 m-1 border border-0 p-1">Miss {{ miss }}</span>
+    </div>
+    <div v-if="total>0 && !start" class="container border border-3 rounded text-center p-5 mt-2" style="width:20pc">
+      <h3>Your Score</h3>
+      <p class="fs-3 m-1 text-primary p-1">Total {{ total }}</p> 
+      <p class="fs-3 m-1 text-success p-1">Hits {{ hits }}</p>
+      <p class="fs-3 m-1 text-danger p-1">Miss {{ miss }}</p>
     </div>
     <Box v-if="start" @scoreEvent="increaseScore" @newBox="increaseTotal"></Box>
   </div>
