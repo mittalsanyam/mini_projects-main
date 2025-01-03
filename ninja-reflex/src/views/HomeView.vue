@@ -10,13 +10,13 @@
     <div v-if='start' class="container border border-3 rounded mt-2" style="width:25pc;">
       <span class="text-primary fs-3 m-1 border border-0 p-1">Total {{ total }}</span> 
       <span class="text-success fs-3 m-1 border border-0 p-1">Hits {{ hits }}</span>
-      <span class="text-danger fs-3 m-1 border border-0 p-1">Miss {{ miss }}</span>
+      <span class="text-danger fs-3 m-1 border border-0 p-1">Missed {{ miss }}</span>
     </div>
     <div v-if="total>0 && !start" class="container border border-3 rounded text-center p-5 mt-2" style="width:20pc">
       <h3>Your Score</h3>
       <p class="fs-3 m-1 text-primary p-1">Total {{ total }}</p> 
       <p class="fs-3 m-1 text-success p-1">Hits {{ hits }}</p>
-      <p class="fs-3 m-1 text-danger p-1">Miss {{ miss }}</p>
+      <p class="fs-3 m-1 text-danger p-1">Missed {{ miss }}</p>
     </div>
     <Box v-if="start" @scoreEvent="increaseScore" @newBox="increaseTotal"></Box>
   </div>
@@ -35,7 +35,6 @@ export default {
     return {
       start:false,
       hits:0,
-      miss:0,
       total:0
     }
   },
@@ -54,8 +53,12 @@ export default {
     },
     increaseTotal(){
       this.total+=1
-      this.miss=this.total-this.hits
     }
   },
+  computed:{
+    miss(){
+      return this.total-this.hits
+    }
+  }
 }
 </script>

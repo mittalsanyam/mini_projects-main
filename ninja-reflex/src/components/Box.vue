@@ -35,7 +35,7 @@ export default {
             document.getElementById("main").appendChild(this.box)
             this.$emit('newBox')
             if (this.level==10){
-                this.level=10
+                this.level=0
                 this.timer=this.timer-50
             }
             this.timeout=setTimeout(
