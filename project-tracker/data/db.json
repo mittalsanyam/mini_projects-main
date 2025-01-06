@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Make a webpage",
+      "details": "Make a webpage for the new items in the category of shoes",
+      "isComplete": false
+    },
+    {
+      "id": "2",
+      "title": "Make marketing email campaign",
+      "details": "Prepare a marketing email campaign for the new items.",
+      "isComplete": true
+    },
+    {
+      "id": "5874",
+      "title": "Make a new website",
+      "details": "make new website for the client",
+      "isComplete": true
+    }
+  ]
+}
