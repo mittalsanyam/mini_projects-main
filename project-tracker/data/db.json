@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Make a webpage",
       "details": "Make a webpage for the new items in the category of shoes",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": "2",
