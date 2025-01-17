@@ -16,7 +16,6 @@ export default {
     props:['posts'],
     setup(props){
         const tags = useTags(props.posts)
-        console.log(tags)
         return { tags }
     }
 }

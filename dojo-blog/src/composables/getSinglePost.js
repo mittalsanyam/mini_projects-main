@@ -1,15 +1,17 @@
 import { ref } from 'vue'
+import { projectFirestore } from '@/firebase/config'
+import { doc,getDoc } from "firebase/firestore" 
 
 const getSinglePost = (id)=>{
     const post = ref(null)
     const error = ref(null)
     const load = async() => {
         try {
-            let data = await fetch('http://localhost:3000/posts/'+id)
-            if (!data.ok){
-                throw Error('post does not exist')
+            let res = await getDoc(doc(projectFirestore,'posts',id))
+            if (!res.exists()){
+                throw Error('That post does not exists')
             }
-            post.value = await data.json()
+            post.value = {...res.data(),id:res.id}
         }
         catch(err){
             error.value = err.message
